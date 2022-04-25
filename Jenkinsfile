@@ -18,8 +18,8 @@ node('haimaxy-jnlp') {
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"
-            sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
-            sh "docker push cnych/jenkins-demo:${build_tag}"
+             sh "docker tag cnych/jenkins-demo:${build_tag} abcsys.cn:5000/cnych/jenkins-demo:${build_tag}"
+             sh "docker push abcsys.cn:5000/cnych/jenkins-demo:${build_tag}"
     }
     stage('Deploy') {
         echo "5. Deploy Stage"
